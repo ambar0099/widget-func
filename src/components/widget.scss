@@ -1,26 +1,5 @@
-@keyframes slideInUp {
-  from {
-    transform: translate3d(0, 100%, 0);
-    display: inherit;
-    visibility: visible;
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes slideOutDown {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-
-  to {
-    display: none;
-    visibility: hidden;
-    transform: translate3d(0, 100%, 0);
-  }
-}
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
+@import "~bootstrap/scss/bootstrap";
 
 .docked-widget {
   position: fixed;
@@ -40,7 +19,6 @@
   border: 1px solid grey;
   background: white;
 }
-
 
 .widget {
   width: 200px;
@@ -96,5 +74,44 @@
     background: green;
     line-height: 30px;
     padding-left: 10px;
+  }
+}
+
+.widget-container{
+  .title{
+    font-size: 2rem;
+    text-align: center;
+  }
+  .text-highlight{
+    color:#7023f0;
+  }
+  .widget-item{
+    flex-grow:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    border-color: #DDDDDD;
+    border-width: 0px 0.5px 0.5px 0px;
+    font-size: 1rem;
+    padding: 1rem 0rem;
+    .text-highlight{
+      font-size: 1.5rem;
+      padding-top: 1rem;
+    }
+    &:last-child {
+     border-right: 0px !important; 
+    }
+  }
+
+  .table-title{
+    font-size: 1.5rem;
+    border-bottom: 2px solid #000000;
+  }
+
+  .table-header{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.5px solid #DDDDDD;
   }
 }

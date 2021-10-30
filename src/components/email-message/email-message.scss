@@ -1,0 +1,87 @@
+   .email-message-screen {
+    text-align: center;
+
+    .msg-section > a {
+        padding: 1em;
+        color: black;
+    }
+    
+    .reminder {
+        margin-left: -3em;
+    }
+    
+    .link-share-text, .link-text {
+        font-size: 12px;
+    }
+    
+    .email-msg-copy {
+        position: relative;
+        left: -4%;
+        bottom: 0.01em;
+    }
+    
+    .icon-copy {
+        width: 0.6em !important;
+    }
+    
+    
+    .sign-up {
+        margin-left: -9.1em;
+    }
+    
+    
+    .msg-section > a:hover {
+        padding: 1em;
+        text-decoration: none;
+        color: black;
+    }
+    
+    .email-message-header {
+        width: 270px;
+        font-size: 28px;
+        line-height: 30px;
+    }
+    
+    .email-message-sub-header {
+        margin: 0 auto;
+        font-size: 16px;
+        line-height: 21px;
+        width: 280px;
+        overflow-wrap: break-word;
+        line-break: after-white-space;
+        -webkit-line-break: after-white-space;
+    }
+    
+    .email-message-info {
+        font-size: 28px;
+        line-height: 30px;
+    }
+    
+    .email-header {
+        margin-top: 3.5em;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
+    #toMailMessageEmailPlaceholder {
+        margin-bottom: 0.3em !important;
+    }
+
+    #emailMessageEmailPlaceholder, #emailLongMsg {
+        margin-bottom: 0.5em !important;
+    }
+
+    #emailLongMsg {
+        margin: 0 auto;
+    }
+
+    .chkbox {
+        margin-top: 1em !important;
+    }
+    .email-header-input {
+        margin: 1em auto !important;
+    }
+}
+   
+

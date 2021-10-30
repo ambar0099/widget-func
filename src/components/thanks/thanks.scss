@@ -1,0 +1,44 @@
+.thanks-screen {
+    text-align: center;
+    .msg-section > a {
+        padding: 1em;
+        color: black;
+    }
+        
+    .link-share-text, .link-text {
+        font-size: 12px;
+    }
+    
+    .email-msg-copy {
+        position: relative;
+        left: -4%;
+        bottom: 0.01em;
+    }
+    
+    .icon-copy {
+        width: 0.6em !important;
+    }
+    
+    .msg-section > a:hover {
+        padding: 1em;
+        text-decoration: none;
+        color: black;
+    }
+
+    .thanks-screen-header {
+        width: 270px;
+        font-size: 28px;
+        line-height: 30px;
+    }
+    
+    .thanks-cont {
+        text-align: center;
+    }
+    
+    .thanks-screen-info {
+        font-size: 28px;
+        line-height: 30px;
+    }
+
+}
+

@@ -1,0 +1,58 @@
+.welcome-screen {
+
+    text-align: center;
+    
+    .welcome-screen-header {
+        width: 270px;
+        max-width: 270px;
+        font-size: 28px;
+        line-height: 30px;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+    }
+    
+    .welcome-screen-sub-header {
+        margin: 0 auto;
+        font-size: 16px;
+        line-height: 21px;
+        width: 280px;
+        max-width: 280px;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;    
+    }
+    
+    .welcome-screen-info {
+        font-size: 28px;
+        line-height: 30px;
+    }
+    
+    .email-header-input {
+        display: block;
+        margin: 0 auto !important;
+    }
+    
+    .email-header {
+        margin-top: 3.5em;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.5;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;  
+    }
+    
+    .overflow-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+}
+

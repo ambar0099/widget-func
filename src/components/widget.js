@@ -1,38 +1,58 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Transition } from 'react-transition-group';
 import './widget.scss';
-
+import { Modal } from 'react-bootstrap';
+import "bootstrap/dist/js/bootstrap.min.js";
 class Widget extends Component {
-  state = {
-    opened: false,
-    showDock: true,
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      opened: false,
+      showDialog: false,
+      screenNo: 0
+    }
   }
+  src = `http://localhost:3001/welcome/${"1224"}`;
 
   handleToggleOpen = () => {
+    // EmbeddableWidget.mount({
+    //   bodyText: 'Body',
+    //   type: 'selfPopup',
+    //   id: 'embed'
+    // });
     this.setState((prev) => {
-      let { showDock } = prev;
-      if (!prev.opened) {
-        showDock = false;
-      }
       return {
-        showDock,
+        screenNo: 0,
         opened: !prev.opened,
+        showDialog: !prev.opened
       };
     });
   }
 
-  handleWidgetExit = () => {
-    this.setState({
-      showDock: true,
+  handleDialogClose = () => {
+    this.setState((prev) => {
+      let { showDialog } = prev;
+      if (prev.showDialog) {
+        showDialog = false;
+      }
+      return {
+        opened: !prev.opened,
+        showDialog: !prev.showDialog
+      };
     });
   }
 
+  handleScreenUpdate = (screen) => {
+    this.forceUpdate();
+    this.setState((prev) => {
+      return {
+        screenNo: screen
+      };
+    });
+  }
+
+
   renderBody = () => {
-    const { showDock } = this.state;
-
-    if (!showDock) return '';
-
     return (
       <button
         type="button"
@@ -45,54 +65,43 @@ class Widget extends Component {
     );
   }
 
+  ScreenUpdate(screen) {
+    switch (screen) {
+      case 'EmailGate':
+        this.handleScreenUpdate(1);
+        break;
+      case 'EmailMessage':
+        this.handleScreenUpdate(2);
+        break;
+      case 'Thanks':
+        this.handleScreenUpdate(0);
+        break;
+    }
+  }
+
   render() {
     const { opened } = this.state;
     const body = this.renderBody();
-    const { bodyText, headerText, footerText } = this.props;
 
     return (
-      <div className="docked-widget">
-        <Transition in={opened} timeout={250} onExited={this.handleWidgetExit}>
-          {status => (
-            <div className={`widget widget-${status}`}>
-              <div className="widget-header">
-                <div className="widget-header-title">
-                  {headerText}
-                </div>
-                <button
-                  type="button"
-                  className="widget-header-icon"
-                  onClick={this.handleToggleOpen}
-                  onKeyPress={this.handleToggleOpen}
-                >
-                  X
-                </button>
-              </div>
-              <div className="widget-body">
-                {bodyText}
-              </div>
-              <div className="widget-footer">
-                {footerText}
-              </div>
-            </div>
-          )}
-        </Transition>
-        {body}
+      <div>
+        {this.props.type === 'embed' &&
+          <iframe src={this.src} className="container" style={{ height: '800px' }}></iframe>
+        }
+        {this.props.type === 'popup' || opened &&
+          <Modal.Dialog size="lg">
+            <Modal.Body>
+              <iframe src={this.src} className="container" style={{ height: '800px' }}></iframe>
+            </Modal.Body>
+          </Modal.Dialog>
+        }
+        {this.props.type === 'selfPopup' &&
+         <div className="docked-widget">
+          {body}
+        </div>}
       </div>
     );
   }
 }
-
-Widget.propTypes = {
-  headerText: PropTypes.string,
-  bodyText: PropTypes.string,
-  footerText: PropTypes.string,
-};
-
-Widget.defaultProps = {
-  headerText: 'Header',
-  bodyText: 'Body',
-  footerText: 'Footer',
-};
 
 export default Widget;

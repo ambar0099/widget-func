@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Embeddable Widget</title>
-  </head>
-  <body>
-    <p>Note: Widget rendered in bottom-right of this screen.</p>
-    
-    <script src="./widget.js"></script>
-    <script>
-      EmbeddableWidget.mount({
-        bodyText: 'Body'
-      });
-    </script>
-  </body>
+
+<head>
+  <title>Embeddable Widget</title>
+</head>
+
+<body>
+  <p>Note: Widget rendered in bottom-right of this screen.</p>
+  <div onClick="temp()">Click to load widget</div>
+  <div id="embed" style="width: 40%; margin: 0 auto;"></div>
+  <script src="./widget.js"></script>
+  <script>
+    // function temp() {
+    EmbeddableWidget.mount({
+      bodyText: 'Body',
+      type: 'popup',
+      id: 'embed'
+    });
+  // }
+
+      window.fbAsyncInit = function () {
+        window.FB = FB;
+        console.log(11234, window.FB);
+        window.FB.init({
+          appId: '4082201481863569',
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: 'v2.9'
+        });
+        FB.AppEvents.logPageView();
+      };
+
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    // }
+  </script>
+</body>
+
 </html>
