@@ -29,19 +29,19 @@ export default class EmbeddableWidget {
       const iframe = document.createElement('iframe');
       // IFRAME_URL is the url for the index HTML page of our
       // plain old react/redux webapp
-      iframe.src = `http://localhost:3001/welcome/1224`;
+      iframe.src = `http://3.109.32.159:3000/welcome/1224`;
       iframe.style.width = '100%';
       iframe.style.height = '100em';
       iframe.crossorigin = "anonymous";
-      if (component.props.type==='popup') {
-        document.querySelector('#' + component.props.id).appendChild(iframe);
+      if (component.props.type === 'clientPopup') {
+        document.querySelector('#' + component.props.elementId).appendChild(iframe);
         const el = document.createElement('div');
         el.setAttribute('class', 'cleanslate');
         ReactDOM.render(
           component,
           el
         );
-      } else if (component.props.type==='selfPopup'){
+      } else if (component.props.type === 'popup') {
         const el = document.createElement('div');
         el.setAttribute('class', 'cleanslate');
         ReactDOM.render(
@@ -57,7 +57,7 @@ export default class EmbeddableWidget {
           component,
           el
         );
-        document.querySelector('#' + component.props.id).appendChild(iframe);
+        document.querySelector('#' + component.props.elementId).appendChild(iframe);
       }
     }
     if (document.readyState === 'complete') {

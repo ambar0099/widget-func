@@ -12,7 +12,7 @@ class Widget extends Component {
       screenNo: 0
     }
   }
-  src = `http://localhost:3001/welcome/1224`;
+  src = `http://3.109.32.159:3000/welcome/1224`;
 
   handleToggleOpen = () => {
     // EmbeddableWidget.mount({
@@ -88,14 +88,14 @@ class Widget extends Component {
         {this.props.type === 'embed' &&
           <iframe src={this.src} className="container" style={{ height: '800px' }}></iframe>
         }
-        {this.props.type === 'popup' || opened &&
+        {this.props.type === 'clientPopup' || opened &&
           <Modal.Dialog size="lg">
             <Modal.Body>
               <iframe src={this.src} className="container" style={{ height: '800px' }}></iframe>
             </Modal.Body>
           </Modal.Dialog>
         }
-        {this.props.type === 'selfPopup' &&
+        {this.props.type === 'popup' &&
          <div className="docked-widget">
           {body}
         </div>}

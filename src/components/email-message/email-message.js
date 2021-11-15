@@ -169,7 +169,7 @@ class EmailMessage extends Component {
                         className="link-share-text text-nowrap mr-1 w-50" >
                         And share your link wherever:
             </div>
-                    <input onChange={() => { }} className="link-text pl-sm-2 w-50 form-control" name="trackable_link" readnly="true" type="text" value="http://localhost:3000/zzzy" />
+                    <input onChange={() => { }} className="link-text pl-sm-2 w-50 form-control" name="trackable_link" readnly="true" type="text" value="http://3.109.32.159:3000/zzzy" />
                     <a className="email-msg-copy d-flex-not-important justify-content-center align-items-center my-auto overlap-icon" data-fbuy-builder-tag="Button">
                         <FontAwesomeIcon className="icon-copy" icon={faCopy} />
                     </a>
