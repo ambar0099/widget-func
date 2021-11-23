@@ -7,15 +7,13 @@
 
 <body>
   <p>Note: Widget rendered in bottom-right of this screen.</p>
-  <div onClick="temp()">Click to load widget</div>
   <div id="embed" style="width: 40%; margin: 0 auto;"></div>
-  <script src="./widget.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ambar0099/wid-do/dist/widget.js"></script>
   <script>
     // function temp() {
     EmbeddableWidget.mount({
       bodyText: 'Body',
-      type: 'selfPopup',
-      elementId: 'embed'
+      type: 'popup'
     });
   // }
 
