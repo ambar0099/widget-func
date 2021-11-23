@@ -12,7 +12,7 @@ class Widget extends Component {
       screenNo: 0
     }
   }
-  src = `http://3.109.32.159:3000/welcome/1224`;
+  src = `http://139.59.37.133:3000/welcome/1224`;
 
   handleToggleOpen = () => {
     // EmbeddableWidget.mount({

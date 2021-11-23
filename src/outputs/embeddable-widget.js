@@ -29,7 +29,7 @@ export default class EmbeddableWidget {
       const iframe = document.createElement('iframe');
       // IFRAME_URL is the url for the index HTML page of our
       // plain old react/redux webapp
-      iframe.src = `http://3.109.32.159:3000/welcome/1224`;
+      iframe.src = `http://139.59.37.133:3000/welcome/1224`;
       iframe.style.width = '100%';
       iframe.style.height = '100em';
       iframe.crossorigin = "anonymous";
