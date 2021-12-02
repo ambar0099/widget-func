@@ -15,6 +15,28 @@ class EmailMessage extends Component {
         super(props);
     }
 
+    loadFB = () => {
+        
+      window.fbAsyncInit = function () {
+        window.FB = FB;
+        window.FB.init({
+          appId: '4082201481863569',
+          autoLogAppEvents: true,
+          xfbml: true,
+          version: 'v2.9'
+        });
+        FB.AppEvents.logPageView();
+      };
+
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    }
+
     handleToggleOpen = () => {
         this.setState((prev) => {
             return {
@@ -69,7 +91,7 @@ class EmailMessage extends Component {
     render() {
         const { opened } = this.state;
         const body = this.renderBody();
-
+        this.loadFB();
 
         return (
             <div className="email-message-screen">
